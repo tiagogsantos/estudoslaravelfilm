@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e4d7d00-ac3d-4dd6-9a75-366d8b1ba77a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/css/estilo.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/atores/index.blade.php" afterDir="false" />
+    <list default="true" id="3e4d7d00-ac3d-4dd6-9a75-366d8b1ba77a" name="Default Changelist" comment="Criado funcionalidade de filmes relacionados e ajustes na index">
+      <change afterPath="$PROJECT_DIR$/resources/views/atores/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MarcasController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/filmes/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/filmes/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AtoresController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AtoresController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/atores/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/atores/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -199,12 +195,16 @@
       <workItem from="1654022753996" duration="6539000" />
       <workItem from="1654082630358" duration="5065000" />
       <workItem from="1654109839394" duration="11776000" />
-      <workItem from="1654513125096" duration="36601000" />
+      <workItem from="1654513125096" duration="43183000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Criado funcionalidade de filmes relacionados e ajustes na index" />
+    <option name="LAST_COMMIT_MESSAGE" value="Criado funcionalidade de filmes relacionados e ajustes na index" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

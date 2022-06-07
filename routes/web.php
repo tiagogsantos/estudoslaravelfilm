@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\MarcasController;
+use App\Http\Controllers\AtoresController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +15,11 @@ use App\Http\Controllers\MarcasController;
 |
 */
 
+// Retorna um ator por um id
+Route::get('atores/show/{id}', [AtoresController::class, 'show'])->name('atores.show');
+
 // Retorno de atores populares
-
-
+Route::get('atores/index', [AtoresController::class, 'index'])->name('atores.index');
 
 // Retorno de filme por id
 Route::get('filmes/show/{id}', [DashboardController::class, 'show'])->name('filmes.show');
