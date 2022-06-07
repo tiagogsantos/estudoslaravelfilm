@@ -15,14 +15,11 @@ use App\Http\Controllers\MarcasController;
 |
 */
 
-Route::get('marcas/edit/{id}', [MarcasController::class, 'edit'])->name('marcas.edit');
+// Retorno de atores populares
 
-Route::post('marcas/store', [MarcasController::class, 'store'])->name('marcas.store');
-Route::get('marcas/carros', [MarcasController::class, 'create'])->name('marcas.create');
-Route::get('marcas/index', [MarcasController::class, 'index'])->name('marcas.index');
 
-/* Metodos de Dashboard */
 
+// Retorno de filme por id
 Route::get('filmes/show/{id}', [DashboardController::class, 'show'])->name('filmes.show');
 
 // Página de Index
