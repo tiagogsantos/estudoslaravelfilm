@@ -3,6 +3,7 @@
 @section('content')
 
     <div class="container">
+        <h1>Filmes Populares</h1>
         <div class="row">
             @foreach($responseBody as $resultado)
                 <div class="col-md-4 mt-5">
@@ -11,7 +12,6 @@
                              alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{ $resultado['title'] }}</h5>
-                            <input type="text" name="idFilmes" id="idFilme" data-teste="{{ $resultado['id'] }}">
                             <a href="{{ route('filmes.show', $resultado['id'] ) }}">
                                 <button id="idFilme" class="btn btn-warning valor">Visualizar</button>
                             </a>

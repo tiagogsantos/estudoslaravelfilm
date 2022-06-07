@@ -92,6 +92,34 @@ class DashboardController extends Controller
         return json_decode($responseBodyTrailer, true)['results'];
     }
 
+    // API de retorno de pessoa
+    public function apiAtoresAtreladoFilme($id)
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://api.themoviedb.org/3/movie/' . $id . '/credits',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json',
+                'Accept-Charset: utf-8',
+                'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmZmNhYWNjYThjYzIzMWM0YzJkMDc1ZGJhMTZkM2Q2MiIsInN1YiI6IjVmODM4YzJhOTVjMGFmMDAzOTdkZjU3ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.LPPQ2_7C3rBT4BPC4c3F2SShBkgpyFeS4X20k2oEUO4'
+            ),
+        ));
+
+        $responseAtores = curl_exec($curl);
+
+        curl_close($curl);
+
+        return json_decode($responseAtores, true)['cast'];
+    }
+
     // Retorno de página index
     public function index()
     {
@@ -107,10 +135,12 @@ class DashboardController extends Controller
     {
         $responseBodyFilme = $this->apiFilmesUnico($id);
         $responseBodyTrailer = $this->apiFilmesTrailler($id);
+        $responseAtores = $this->apiAtoresAtreladoFilme($id);
 
         return view('filmes.show', [
             'responseBodyFilme' => $responseBodyFilme,
-            'responseBodyTrailer' => $responseBodyTrailer
+            'responseBodyTrailer' => $responseBodyTrailer,
+            'responseAtores' => $responseAtores
         ]);
     }
 }
