@@ -21,6 +21,8 @@ use App\Http\Controllers\SeriesController;
 // Retorna a visualização de series por id
 Route::get('series/show/{id}/{season?}/{episode?}', [SeriesController::class, 'show'])->name('series.show');
 
+
+
 // Retorna a página index de series
 Route::get('series/index', [SeriesController::class, 'index'])->name('series.index');
 

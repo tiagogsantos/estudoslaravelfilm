@@ -28,7 +28,7 @@
                                  data-keyboard="false"
                                  tabindex="-1"
                                  aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog">
+                                <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title text-black-50"
@@ -49,28 +49,23 @@
 
                                             <nav>
                                                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-
-
-
-                                                    <a class="nav-link active" id="nav-home-tab" data-toggle="tab"
-                                                       href="#nav-home" role="tab" aria-controls="nav-home"
-                                                       aria-selected="true">Home</a>
-                                                    <a class="nav-link" id="nav-profile-tab" data-toggle="tab"
-                                                       href="#nav-profile" role="tab" aria-controls="nav-profile"
-                                                       aria-selected="false">Profile</a>
-                                                    <a class="nav-link" id="nav-contact-tab" data-toggle="tab"
-                                                       href="#nav-contact" role="tab" aria-controls="nav-contact"
-                                                       aria-selected="false">Contact</a>
+                                                    @foreach($responseSerieEpsodio as $episodios)
+                                                        <a class="nav-link text-dark" id="nav-profile-tab"
+                                                           data-toggle="tab"
+                                                           href="#nav-profile{{ $episodios['id'] }}" role="tab"
+                                                           aria-controls="nav-profile"
+                                                           aria-selected="false">{{ $episodios['episode_number'] }}</a>
                                                 </div>
                                             </nav>
-
-                                            <!--     <div class="tab-content" id="nav-tabContent">
-                                                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...</div>
-                                                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
-                                                     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
-                                                 </div>
-                                                 -->
-
+                                            <div class="tab-content" id="nav-tabContent">
+                                                <div class="tab-pane fade" id="nav-profile{{ $episodios['id'] }}"
+                                                     role="tabpanel"
+                                                     aria-labelledby="nav-profile-tab">
+                                                    <p class="text-dark">{{ $episodios['name'] }}</p> <br/>
+                                                    <p class="text-dark">{{ $episodios['overview'] }}</p>
+                                                </div>
+                                            </div>
+                                            @endforeach
 
                                         </div>
                                         <div class="modal-footer">

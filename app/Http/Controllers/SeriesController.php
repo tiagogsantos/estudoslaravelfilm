@@ -78,15 +78,15 @@ class SeriesController extends Controller
     }
 
     // Retorna o epsodio atrelado a temporada
-    public function apiSerieEpisodio($id, $season = null, $episode = null)
+   /* public function apiSerieEpisodio($id, $season = null, $episode = null)
     {
-       $client = new Client();
+        $client = new Client();
 
-       $sessao = ($season == null ? '' : '/season/' . $season. '/episode/' . $episode);
+        $sessao = ($season == null ? '' : '/season/' . $season . '/episode/' . $episode);
 
-      // dd('https://api.themoviedb.org/3/tv/' . $id . $sessao.'');
+        // dd('https://api.themoviedb.org/3/tv/' . $id . $sessao.'');
 
-        $url = 'https://api.themoviedb.org/3/tv/' . $id . $sessao.'?&language=pt-BR';
+        $url = 'https://api.themoviedb.org/3/tv/' . $id . $sessao . '?&language=pt-BR';
 
         $token = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmZmNhYWNjYThjYzIzMWM0YzJkMDc1ZGJhMTZkM2Q2MiIsInN1YiI6IjVmODM4YzJhOTVjMGFmMDAzOTdkZjU3ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.LPPQ2_7C3rBT4BPC4c3F2SShBkgpyFeS4X20k2oEUO4';
 
@@ -102,15 +102,32 @@ class SeriesController extends Controller
         ]);
 
         return json_decode($responseSerieEpsodio->getBody(), true);
-    }
+    } */
 
     // Retorna as sessões da temporada
-    public function apiTrazerSessao ()
+    public function apiTrazerSessao($id, $season = null)
     {
+        $client = new Client();
 
+        $sessao = ($season == null ? '' : '/season/' . $season . '');
+
+        $url = 'https://api.themoviedb.org/3/tv/' . $id . $sessao . '?&language=pt-BR';
+
+        $token = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmZmNhYWNjYThjYzIzMWM0YzJkMDc1ZGJhMTZkM2Q2MiIsInN1YiI6IjVmODM4YzJhOTVjMGFmMDAzOTdkZjU3ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.LPPQ2_7C3rBT4BPC4c3F2SShBkgpyFeS4X20k2oEUO4';
+
+        $method = 'GET';
+
+        $headers = [
+            'Authorization' => 'Bearer ' . $token,
+            'Accept' => 'application/json',
+        ];
+
+        $responseSerieEpsodio = $client->request($method, $url, [
+            'headers' => $headers
+        ]);
+
+        return json_decode($responseSerieEpsodio->getBody(), true)['episodes'];
     }
-
-
 
 
     // Retorno da página index
@@ -124,20 +141,20 @@ class SeriesController extends Controller
     }
 
     // Retorna os detalhes das series por id
-    public function show($id)
+    public function show($id, $season = null)
     {
         $responseSeriesUnico = $this->apiSeriesUnico($id);
-
-
         $responseSerieTrailer = $this->apiSerieTrailer($id);
-        $episodio = $this->apiSerieEpisodio($id);
+        $responseSerieEpsodio = $this->apiTrazerSessao($id, $season);
 
-        dd($episodio);
+       // dd($responseSerieEpsodio);
+
+
 
         return view('series.show', [
             'responseSeriesUnico' => $responseSeriesUnico,
             'responseSerieTrailer' => $responseSerieTrailer,
-            'episodio' => $episodio
+            'responseSerieEpsodio' => $responseSerieEpsodio
         ]);
     }
 }
