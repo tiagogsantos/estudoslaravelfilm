@@ -92,7 +92,7 @@ class DashboardController extends Controller
         return json_decode($responseBodyTrailer, true)['results'];
     }
 
-    // API de retorno de pessoa
+    // API de retorno de pessoa por id
     public function apiAtoresAtreladoFilme($id)
     {
         $curl = curl_init();

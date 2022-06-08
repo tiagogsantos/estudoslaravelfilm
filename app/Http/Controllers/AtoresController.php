@@ -86,6 +86,7 @@ class AtoresController extends Controller
         ]);
     }
 
+    // Retorna os detalhes dos atores
     public function show($id)
     {
         $responseAtorUnico = $this->apiAtoresUnico($id);

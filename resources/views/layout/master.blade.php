@@ -30,7 +30,7 @@
                 <a class="nav-link" href="{{ route('index') }}">Filmes <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Series</a>
+                <a class="nav-link" href="{{ route('series.index') }}">Series</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('atores.index') }}">Atores</a>

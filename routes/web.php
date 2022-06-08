@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AtoresController;
+use App\Http\Controllers\SeriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,14 @@ use App\Http\Controllers\AtoresController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
+// Retorna a visualização de series por id
+Route::get('series/show/{id}/{season?}/{episode?}', [SeriesController::class, 'show'])->name('series.show');
+
+// Retorna a página index de series
+Route::get('series/index', [SeriesController::class, 'index'])->name('series.index');
 
 // Retorna um ator por um id
 Route::get('atores/show/{id}', [AtoresController::class, 'show'])->name('atores.show');
