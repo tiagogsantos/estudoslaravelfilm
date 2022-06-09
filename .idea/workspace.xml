@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="3e4d7d00-ac3d-4dd6-9a75-366d8b1ba77a" name="Default Changelist" comment="Criado funcionalidade de filmes relacionados e ajustes na index">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AtoresController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AtoresController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SeriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SeriesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/atores/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/atores/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/series/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/series/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +195,8 @@
       <workItem from="1654022753996" duration="6539000" />
       <workItem from="1654082630358" duration="5065000" />
       <workItem from="1654109839394" duration="11776000" />
-      <workItem from="1654513125096" duration="68766000" />
+      <workItem from="1654513125096" duration="78382000" />
+      <workItem from="1654792508200" duration="3793000" />
     </task>
     <servers />
   </component>

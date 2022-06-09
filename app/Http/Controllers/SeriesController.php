@@ -32,7 +32,7 @@ class SeriesController extends Controller
     }
 
     // Retorna os dados de series por id
-    public function apiSeriesUnico($id)
+    public function apiSeriesUnico($id, $season = null)
     {
         $client = new Client();
 
@@ -55,7 +55,7 @@ class SeriesController extends Controller
     }
 
     // Retorna o trailer da serie
-    public function apiSerieTrailer($id)
+    public function apiSerieTrailer($id, $season = null)
     {
         $client = new Client();
 
@@ -126,9 +126,14 @@ class SeriesController extends Controller
             'headers' => $headers
         ]);
 
-        return json_decode($responseSerieEpsodio->getBody(), true)['episodes'];
-    }
+       /* if (empty(['episodes'])) {
+            return json_decode($responseSerieEpsodio->getBody(), true);
+        } else {
+            return json_decode($responseSerieEpsodio->getBody(), true);
+        } */
 
+        return json_decode($responseSerieEpsodio->getBody(), true);
+    }
 
     // Retorno da página index
     public function index()
@@ -143,13 +148,11 @@ class SeriesController extends Controller
     // Retorna os detalhes das series por id
     public function show($id, $season = null)
     {
-        $responseSeriesUnico = $this->apiSeriesUnico($id);
-        $responseSerieTrailer = $this->apiSerieTrailer($id);
+        $responseSeriesUnico = $this->apiSeriesUnico($id, $season);
+        $responseSerieTrailer = $this->apiSerieTrailer($id, $season);
         $responseSerieEpsodio = $this->apiTrazerSessao($id, $season);
 
        // dd($responseSerieEpsodio);
-
-
 
         return view('series.show', [
             'responseSeriesUnico' => $responseSeriesUnico,

@@ -54,11 +54,11 @@ class AtoresController extends Controller
     }
 
     // Lista todos os filmes que o ator já fez
-    public function apiFilmesAtor ($id)
+    public function apiFilmesAtor($id)
     {
         $client = new Client();
 
-        $url = 'https://api.themoviedb.org/3/person/'.$id.'/tv_credits?&language=pt-BR';
+        $url = 'https://api.themoviedb.org/3/person/' . $id . '/tv_credits?&language=pt-BR';
 
         $token = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmZmNhYWNjYThjYzIzMWM0YzJkMDc1ZGJhMTZkM2Q2MiIsInN1YiI6IjVmODM4YzJhOTVjMGFmMDAzOTdkZjU3ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.LPPQ2_7C3rBT4BPC4c3F2SShBkgpyFeS4X20k2oEUO4';
 
@@ -91,6 +91,8 @@ class AtoresController extends Controller
     {
         $responseAtorUnico = $this->apiAtoresUnico($id);
         $responseFilmesAtor = $this->apiFilmesAtor($id);
+
+      // dd($responseFilmesAtor);
 
         return view('atores.show', [
             'responseAtorUnico' => $responseAtorUnico,

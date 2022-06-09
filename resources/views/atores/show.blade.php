@@ -19,7 +19,7 @@
                 <div class="col-md-12">
                     <ul>
                         @foreach($responseFilmesAtor as $filmeator)
-                            <li>{{ date('Y', strtotime($filmeator['first_air_date'])) }} / {{ $filmeator['name'] }}</li>
+                            <li>{{ $filmeator['name'] }} </li>
                         @endforeach
                     </ul>
                 </div>

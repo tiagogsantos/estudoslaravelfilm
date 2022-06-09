@@ -49,23 +49,31 @@
 
                                             <nav>
                                                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                                    @foreach($responseSerieEpsodio as $episodios)
-                                                        <a class="nav-link text-dark" id="nav-profile-tab"
-                                                           data-toggle="tab"
-                                                           href="#nav-profile{{ $episodios['id'] }}" role="tab"
-                                                           aria-controls="nav-profile"
-                                                           aria-selected="false">{{ $episodios['episode_number'] }}</a>
+                                                    @if(!empty($responseSerieEpsodio))
+                                                        @foreach($responseSerieEpsodio['seasons'] as $episodios)
+                                                            <a class="nav-link text-dark" id="nav-profile-tab"
+                                                               data-toggle="tab"
+                                                               href="#nav-profile{{ $episodios->episode_number }}"
+                                                               role="tab"
+                                                               aria-controls="nav-profile"
+                                                               aria-selected="false">{{ $episodios->episode_number }}</a>
+                                                        @endforeach
+                                                    @else
+                                                    @endif
                                                 </div>
                                             </nav>
+
                                             <div class="tab-content" id="nav-tabContent">
-                                                <div class="tab-pane fade" id="nav-profile{{ $episodios['id'] }}"
-                                                     role="tabpanel"
-                                                     aria-labelledby="nav-profile-tab">
-                                                    <p class="text-dark">{{ $episodios['name'] }}</p> <br/>
-                                                    <p class="text-dark">{{ $episodios['overview'] }}</p>
-                                                </div>
+                                                @foreach($responseSerieEpsodio['seasons'] as $episodios)
+                                                    <div class="tab-pane fade"
+                                                         id="nav-profile{{ $episodios->episode_number }}"
+                                                         role="tabpanel"
+                                                         aria-labelledby="nav-profile-tab">
+                                                        <p class="text-dark">{{ $episodios->name }}</p> <br/>
+                                                        <p class="text-dark">{{ $episodios->overview }}</p>
+                                                    </div>
+                                                @endforeach
                                             </div>
-                                            @endforeach
 
                                         </div>
                                         <div class="modal-footer">
